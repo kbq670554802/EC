@@ -20,6 +20,6 @@ android {
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-    api project(':kbq-ec')
+    implementation project(':kbq-ec')
     annotationProcessor project(':kbq-compiler')
 }
