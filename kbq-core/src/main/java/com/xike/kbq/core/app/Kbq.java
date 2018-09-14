@@ -10,12 +10,17 @@ import java.util.WeakHashMap;
  * Description:
  */
 public class Kbq {
-    public static Configurator init(Context context){
-        getConfiguration().put(ConfigType.APPLICATION_CONTEXT.name(),context.getApplicationContext());
+    public static Configurator init(Context context) {
+        getConfiguration().put(ConfigType.APPLICATION_CONTEXT.name(), context.getApplicationContext());
         return Configurator.getInstance();
     }
-    private static WeakHashMap<String,Object> getConfiguration(){
+
+    public static WeakHashMap<String, Object> getConfiguration() {
         return Configurator.getInstance().getConfigs();
+    }
+
+    public static Context getApplication() {
+        return (Context) getConfiguration().get(ConfigType.APPLICATION_CONTEXT.name());
     }
 }
 
