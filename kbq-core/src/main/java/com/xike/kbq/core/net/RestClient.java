@@ -1,10 +1,14 @@
 package com.xike.kbq.core.net;
 
+import android.content.Context;
+
 import com.xike.kbq.core.net.callback.IError;
 import com.xike.kbq.core.net.callback.IFailure;
 import com.xike.kbq.core.net.callback.IRequest;
 import com.xike.kbq.core.net.callback.ISuccess;
 import com.xike.kbq.core.net.callback.RequestCallbacks;
+import com.xike.kbq.core.ui.KbqLoader;
+import com.xike.kbq.core.ui.LoaderStyle;
 
 import java.util.Map;
 import java.util.WeakHashMap;
@@ -27,15 +31,29 @@ public class RestClient {
     private final IFailure FAILURE;
     private final IError ERROR;
     private final RequestBody BODY;
+    private final LoaderStyle LOADER_STYLE;
+    private final Context CONTEXT;
 
-    public RestClient(String url, Map<String, Object> params, IRequest request, ISuccess success, IFailure failure, IError error, RequestBody body) {
+
+    public RestClient(String url,
+                      Map<String, Object> params,
+                      IRequest request,
+                      ISuccess success,
+                      IFailure failure,
+                      IError error,
+                      RequestBody body,
+                      Context context,
+                      LoaderStyle loaderStyle
+    ) {
         this.URL = url;
-        this.PARAMS.putAll(params);
+        PARAMS.putAll(params);
         this.REQUEST = request;
         this.SUCCESS = success;
         this.FAILURE = failure;
         this.ERROR = error;
         this.BODY = body;
+        this.CONTEXT = context;
+        this.LOADER_STYLE = loaderStyle;
     }
 
     public static RestClientBuilder builder() {
@@ -47,6 +65,9 @@ public class RestClient {
         Call<String> call = null;
         if (REQUEST != null) {
             REQUEST.onRequestStart();
+        }
+        if (LOADER_STYLE != null) {
+            KbqLoader.showLoading(CONTEXT, LOADER_STYLE);
         }
         switch (method) {
             case GET:
@@ -75,7 +96,8 @@ public class RestClient {
                 REQUEST,
                 SUCCESS,
                 FAILURE,
-                ERROR
+                ERROR,
+                LOADER_STYLE
         );
     }
 

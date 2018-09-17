@@ -26,6 +26,7 @@ public class ExampleDelegate extends KbqDelegate {
     private void testRestClient() {
         RestClient.builder()
                 .url("http://news.baidu.com")
+                .loader(getContext())
 //                .params("", "")
                 .success(new ISuccess() {
                     @Override
@@ -43,7 +44,7 @@ public class ExampleDelegate extends KbqDelegate {
                 .error(new IError() {
                     @Override
                     public void onError(int code, String msg) {
-                        Toast.makeText(getContext(), "failure", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getContext(), "error", Toast.LENGTH_SHORT).show();
 
                     }
                 })
