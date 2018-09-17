@@ -6,4 +6,6 @@ package com.xike.kbq.core.delegates;
  * Description: 运行权限检查层
  */
 public abstract class PermissionCheckerDelegate extends BaseDelegate {
+
+
 }
