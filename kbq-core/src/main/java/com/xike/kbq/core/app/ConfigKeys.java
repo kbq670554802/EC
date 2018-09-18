@@ -1,9 +1,10 @@
 package com.xike.kbq.core.app;
 
 /**
- * Created by 傅令杰 on 2017/3/29
+ * Author: 柯葆青
+ * Date: 2018/9/13
+ * Description: 设置类型枚举类
  */
-
 public enum ConfigKeys {
     API_HOST,
     APPLICATION_CONTEXT,
