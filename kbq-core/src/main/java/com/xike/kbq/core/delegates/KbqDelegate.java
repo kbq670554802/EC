@@ -6,4 +6,8 @@ package com.xike.kbq.core.delegates;
  * Description:
  */
 public abstract class KbqDelegate extends PermissionCheckerDelegate{
+    @SuppressWarnings("unchecked")
+    public <T extends KbqDelegate> T getParentDelegate() {
+        return (T) getParentFragment();
+    }
 }

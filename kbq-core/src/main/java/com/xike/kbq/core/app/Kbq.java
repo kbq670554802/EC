@@ -12,7 +12,7 @@ public class Kbq {
     public static Configurator init(Context context) {
         Configurator.getInstance()
                 .getKbqConfigs()
-                .put(ConfigKeys.APPLICATION_CONTEXT.name(), context.getApplicationContext());
+                .put(ConfigKeys.APPLICATION_CONTEXT, context.getApplicationContext());
         return Configurator.getInstance();
     }
 

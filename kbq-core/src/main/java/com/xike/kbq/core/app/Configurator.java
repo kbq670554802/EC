@@ -1,6 +1,21 @@
 package com.xike.kbq.core.app;
 
-import java.util.WeakHashMap;
+import android.app.Activity;
+import android.os.Handler;
+import android.support.annotation.NonNull;
+
+import com.blankj.utilcode.util.Utils;
+import com.joanzapata.iconify.IconFontDescriptor;
+import com.joanzapata.iconify.Iconify;
+import com.orhanobut.logger.AndroidLogAdapter;
+import com.orhanobut.logger.Logger;
+import com.xike.kbq.core.delegates.web.event.Event;
+import com.xike.kbq.core.delegates.web.event.EventManager;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+
+import okhttp3.Interceptor;
 
 /**
  * Author: 柯葆青
@@ -8,16 +23,22 @@ import java.util.WeakHashMap;
  * Description: 配置类
  */
 public class Configurator {
-    private static final WeakHashMap<String, Object> KBQ_CONFIGS = new WeakHashMap<>();
+
+    private static final HashMap<Object, Object> KBQ_CONFIGS = new HashMap<>();
+    private static final Handler HANDLER = new Handler();
+    private static final ArrayList<IconFontDescriptor> ICONS = new ArrayList<>();
+    private static final ArrayList<Interceptor> INTERCEPTORS = new ArrayList<>();
 
     private Configurator() {
-        KBQ_CONFIGS.put(ConfigType.CONFIG_READY.name(), false);
+        KBQ_CONFIGS.put(ConfigKeys.CONFIG_READY, false);
+        KBQ_CONFIGS.put(ConfigKeys.HANDLER, HANDLER);
     }
 
-    public static Configurator getInstance() {
+    static Configurator getInstance() {
         return Holder.INSTANCE;
     }
-    final  WeakHashMap<String,Object> getKbqConfigs(){
+
+    final HashMap<Object, Object> getKbqConfigs() {
         return KBQ_CONFIGS;
     }
 
@@ -26,17 +47,78 @@ public class Configurator {
     }
 
     public final void configure() {
-        KBQ_CONFIGS.put(ConfigType.CONFIG_READY.name(), true);
+        initIcons();
+        Logger.addLogAdapter(new AndroidLogAdapter());
+        KBQ_CONFIGS.put(ConfigKeys.CONFIG_READY, true);
+        Utils.init(Kbq.getApplicationContext());
     }
 
-    public final Configurator withApiHost(String host){
-        KBQ_CONFIGS.put(ConfigType.API_HOST.name(),host);
+    public final Configurator withApiHost(String host) {
+        KBQ_CONFIGS.put(ConfigKeys.API_HOST, host);
         return this;
     }
-    private void checkConfiguration(){
-        final boolean isReady = (boolean) KBQ_CONFIGS.get(ConfigType.CONFIG_READY.name());
-        if(!isReady){
-            throw new RuntimeException("Configurattion is not ready,call configure");
+
+    public final Configurator withLoaderDelayed(long delayed) {
+        KBQ_CONFIGS.put(ConfigKeys.LOADER_DELAYED, delayed);
+        return this;
+    }
+
+    private void initIcons() {
+        if (ICONS.size() > 0) {
+            final Iconify.IconifyInitializer initializer = Iconify.with(ICONS.get(0));
+            for (int i = 1; i < ICONS.size(); i++) {
+                initializer.with(ICONS.get(i));
+            }
+        }
+    }
+
+    public final Configurator withIcon(IconFontDescriptor descriptor) {
+        ICONS.add(descriptor);
+        return this;
+    }
+
+    public final Configurator withInterceptor(Interceptor interceptor) {
+        INTERCEPTORS.add(interceptor);
+        KBQ_CONFIGS.put(ConfigKeys.INTERCEPTOR, INTERCEPTORS);
+        return this;
+    }
+
+    public final Configurator withInterceptors(ArrayList<Interceptor> interceptors) {
+        INTERCEPTORS.addAll(interceptors);
+        KBQ_CONFIGS.put(ConfigKeys.INTERCEPTOR, INTERCEPTORS);
+        return this;
+    }
+
+    public final Configurator withWeChatAppId(String appId) {
+        KBQ_CONFIGS.put(ConfigKeys.WE_CHAT_APP_ID, appId);
+        return this;
+    }
+
+    public final Configurator withWeChatAppSecret(String appSecret) {
+        KBQ_CONFIGS.put(ConfigKeys.WE_CHAT_APP_SECRET, appSecret);
+        return this;
+    }
+
+    public final Configurator withActivity(Activity activity) {
+        KBQ_CONFIGS.put(ConfigKeys.ACTIVITY, activity);
+        return this;
+    }
+
+    public Configurator withJavascriptInterface(@NonNull String name) {
+        KBQ_CONFIGS.put(ConfigKeys.JAVASCRIPT_INTERFACE, name);
+        return this;
+    }
+
+    public Configurator withWebEvent(@NonNull String name, @NonNull Event event) {
+        final EventManager manager = EventManager.getInstance();
+        manager.addEvent(name, event);
+        return this;
+    }
+
+    private void checkConfiguration() {
+        final boolean isReady = (boolean) KBQ_CONFIGS.get(ConfigKeys.CONFIG_READY);
+        if (!isReady) {
+            throw new RuntimeException("Configuration is not ready,call configure");
         }
     }
 

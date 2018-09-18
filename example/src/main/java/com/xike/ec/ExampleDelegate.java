@@ -47,7 +47,8 @@ public class ExampleDelegate extends KbqDelegate {
 
     public void onGet() {
         RestClient.builder()
-                .url("http://news.baidu.com")
+//                .url("http://news.baidu.com")
+                .url("http://127.0.0.1/index")
                 .loader(getContext())
 //                .params("", "")
                 .success(new ISuccess() {
@@ -129,4 +130,8 @@ public class ExampleDelegate extends KbqDelegate {
         }
     }
 
+    @Override
+    public void post(Runnable runnable) {
+
+    }
 }

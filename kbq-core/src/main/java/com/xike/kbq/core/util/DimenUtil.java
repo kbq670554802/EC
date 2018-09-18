@@ -18,7 +18,7 @@ public class DimenUtil {
      * @return
      */
     public static int getScreenWidth() {
-        final Resources resource = Kbq.getApplication().getResources();
+        final Resources resource = Kbq.getApplicationContext().getResources();
         final DisplayMetrics dm = resource.getDisplayMetrics();
         return dm.widthPixels;
     }
@@ -29,7 +29,7 @@ public class DimenUtil {
      * @return
      */
     public static int getScreenHeight() {
-        final Resources resource = Kbq.getApplication().getResources();
+        final Resources resource = Kbq.getApplicationContext().getResources();
         final DisplayMetrics dm = resource.getDisplayMetrics();
         return dm.heightPixels;
     }
