@@ -4,9 +4,10 @@ package com.xike.kbq.core.app;
 import com.xike.kbq.core.util.storage.KbqPreference;
 
 /**
- * Created by 傅令杰 on 2017/4/22
+ * Author: 柯葆青
+ * Date: 2018/9/19
+ * Description: 账号相关Manager
  */
-
 public class AccountManager {
 
     private enum SignTag {

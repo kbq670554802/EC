@@ -5,7 +5,7 @@ import android.webkit.JavascriptInterface;
 import com.alibaba.fastjson.JSON;
 import com.xike.kbq.core.delegates.web.event.Event;
 import com.xike.kbq.core.delegates.web.event.EventManager;
-import com.xike.kbq.core.util.log.LatteLogger;
+import com.xike.kbq.core.util.log.KbqLogger;
 
 
 /**
@@ -28,7 +28,7 @@ final class LatteWebInterface {
     public String event(String params) {
         final String action = JSON.parseObject(params).getString("action");
         final Event event = EventManager.getInstance().createEvent(action);
-        LatteLogger.d("WEB_EVENT",params);
+        KbqLogger.d("WEB_EVENT",params);
         if (event != null) {
             event.setAction(action);
             event.setDelegate(DELEGATE);

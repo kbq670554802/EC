@@ -9,7 +9,7 @@ import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.xike.kbq.core.app.Kbq;
 import com.xike.kbq.core.net.RestClient;
 import com.xike.kbq.core.net.callback.ISuccess;
-import com.xike.kbq.core.util.log.LatteLogger;
+import com.xike.kbq.core.util.log.KbqLogger;
 import com.xike.kbq.ui.recycler.DataConverter;
 import com.xike.kbq.ui.recycler.MultipleRecyclerAdapter;
 
@@ -92,7 +92,7 @@ public class RefreshHandler implements
                             .success(new ISuccess() {
                                 @Override
                                 public void onSuccess(String response) {
-                                    LatteLogger.json("paging", response);
+                                    KbqLogger.json("paging", response);
                                     CONVERTER.clearData();
                                     mAdapter.addData(CONVERTER.setJsonData(response).convert());
                                     //累加数量

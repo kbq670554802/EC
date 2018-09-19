@@ -1,7 +1,7 @@
 package com.xike.kbq.core.delegates.web.event;
 
 
-import com.xike.kbq.core.util.log.LatteLogger;
+import com.xike.kbq.core.util.log.KbqLogger;
 
 /**
  * Created by 傅令杰
@@ -10,7 +10,7 @@ import com.xike.kbq.core.util.log.LatteLogger;
 public class UndefineEvent extends Event {
     @Override
     public String execute(String params) {
-        LatteLogger.e("UndefineEvent", params);
+        KbqLogger.e("UndefineEvent", params);
         return null;
     }
 }

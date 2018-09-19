@@ -1,0 +1,11 @@
+{
+  "code": 0,
+  "message": "OK",
+  "data": {
+    "userId": 1,
+    "name": "柯葆青",
+    "avatar": "https://img14.360buyimg.com/jdcms/jfs/t1960/353/1004920944/23290/b493302a/564c42e3Nbc160204.jpg",
+    "gender": "男",
+    "address": "厦门市思明区软件园二期"
+  }
+}

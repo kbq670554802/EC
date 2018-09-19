@@ -10,7 +10,7 @@ import com.xike.kbq.core.delegates.IPageLoadListener;
 import com.xike.kbq.core.delegates.web.WebDelegate;
 import com.xike.kbq.core.delegates.web.route.Router;
 import com.xike.kbq.core.ui.KbqLoader;
-import com.xike.kbq.core.util.log.LatteLogger;
+import com.xike.kbq.core.util.log.KbqLogger;
 
 /**
  * Created by 傅令杰
@@ -32,7 +32,7 @@ public class WebViewClientImpl extends WebViewClient {
 
     @Override
     public boolean shouldOverrideUrlLoading(WebView view, String url) {
-        LatteLogger.d("shouldOverrideUrlLoading", url);
+        KbqLogger.d("shouldOverrideUrlLoading", url);
         return Router.getInstance().handleWebUrl(DELEGATE, url);
     }
 

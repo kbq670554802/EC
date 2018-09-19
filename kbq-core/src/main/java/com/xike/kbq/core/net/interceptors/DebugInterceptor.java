@@ -20,13 +20,8 @@ import okhttp3.ResponseBody;
  */
 public class DebugInterceptor extends BaseInterceptor {
 
-    private final String DEBUG_URL;
-    private final int DEBUG_RAW_ID;
+    private final String DEBUG_URL = "debug";
 
-    public DebugInterceptor(String debugUrl, int rawId) {
-        this.DEBUG_URL = debugUrl;
-        this.DEBUG_RAW_ID = rawId;
-    }
 
     private Response getResponse(Chain chain, String json) {
         return new Response.Builder()
@@ -48,7 +43,8 @@ public class DebugInterceptor extends BaseInterceptor {
     public Response intercept(@NonNull Chain chain) throws IOException {
         final String url = chain.request().url().toString();
         if (url.contains(DEBUG_URL)) {
-            return debugResponse(chain, DEBUG_RAW_ID);
+            String debug = getUrlParameters(chain, "debug");
+            return debugResponse(chain, Integer.parseInt(debug));
         }
         return chain.proceed(chain.request());
     }

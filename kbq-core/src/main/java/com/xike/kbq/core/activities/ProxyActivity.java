@@ -13,7 +13,7 @@ import me.yokeyword.fragmentation.SupportActivity;
 /**
  * Author: 柯葆青
  * Date: 2018/9/14
- * Description:
+ * Description: ProxyActivity
  */
 public abstract class ProxyActivity extends SupportActivity {
     public abstract KbqDelegate setRootDelegate();

@@ -32,8 +32,6 @@ public class Kbq {
         return getConfiguration(ConfigKeys.HANDLER);
     }
 
-    public static void test(){
-    }
 }
 
 

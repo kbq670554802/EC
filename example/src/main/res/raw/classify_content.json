@@ -1,0 +1,84 @@
+{
+  "code": 0,
+  "message": "OK",
+  "data": [
+    {
+      "id": 1,
+      "section": "标题1",
+      "goods": [
+        {
+          "goods_id": 3,
+          "goods_thumb": "https://img14.360buyimg.com/jdcms/jfs/t1960/353/1004920944/23290/b493302a/564c42e3Nbc160204.jpg",
+          "goods_name": "品牌1"
+        },
+        {
+          "goods_id": 4,
+          "goods_thumb": "https://img14.360buyimg.com/jdcms/jfs/t1960/353/1004920944/23290/b493302a/564c42e3Nbc160204.jpg",
+          "goods_name": "品牌2"
+        },
+        {
+          "goods_id": 5,
+          "goods_thumb": "https://img14.360buyimg.com/jdcms/jfs/t1960/353/1004920944/23290/b493302a/564c42e3Nbc160204.jpg",
+          "goods_name": "品牌3"
+        },
+        {
+          "goods_id": 6,
+          "goods_thumb": "https://img14.360buyimg.com/jdcms/jfs/t1960/353/1004920944/23290/b493302a/564c42e3Nbc160204.jpg",
+          "goods_name": "品牌4"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "section": "标题2",
+      "goods": [
+        {
+          "goods_id": 3,
+          "goods_thumb": "https://img14.360buyimg.com/jdcms/jfs/t1960/353/1004920944/23290/b493302a/564c42e3Nbc160204.jpg",
+          "goods_name": "品牌1"
+        },
+        {
+          "goods_id": 4,
+          "goods_thumb": "https://img14.360buyimg.com/jdcms/jfs/t1960/353/1004920944/23290/b493302a/564c42e3Nbc160204.jpg",
+          "goods_name": "品牌2"
+        },
+        {
+          "goods_id": 5,
+          "goods_thumb": "https://img14.360buyimg.com/jdcms/jfs/t1960/353/1004920944/23290/b493302a/564c42e3Nbc160204.jpg",
+          "goods_name": "品牌3"
+        },
+        {
+          "goods_id": 6,
+          "goods_thumb": "https://img14.360buyimg.com/jdcms/jfs/t1960/353/1004920944/23290/b493302a/564c42e3Nbc160204.jpg",
+          "goods_name": "品牌4"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "section": "标题3",
+      "goods": [
+        {
+          "goods_id": 3,
+          "goods_thumb": "https://img14.360buyimg.com/jdcms/jfs/t1960/353/1004920944/23290/b493302a/564c42e3Nbc160204.jpg",
+          "goods_name": "品牌1"
+        },
+        {
+          "goods_id": 4,
+          "goods_thumb": "https://img14.360buyimg.com/jdcms/jfs/t1960/353/1004920944/23290/b493302a/564c42e3Nbc160204.jpg",
+          "goods_name": "品牌2"
+        },
+        {
+          "goods_id": 5,
+          "goods_thumb": "https://img14.360buyimg.com/jdcms/jfs/t1960/353/1004920944/23290/b493302a/564c42e3Nbc160204.jpg",
+          "goods_name": "品牌3"
+        },
+        {
+          "goods_id": 6,
+          "goods_thumb": "https://img14.360buyimg.com/jdcms/jfs/t1960/353/1004920944/23290/b493302a/564c42e3Nbc160204.jpg",
+          "goods_name": "品牌4"
+        }
+      ]
+    }
+  ]
+}

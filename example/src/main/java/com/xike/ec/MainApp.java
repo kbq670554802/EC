@@ -5,6 +5,7 @@ import android.app.Application;
 import com.joanzapata.iconify.fonts.FontAwesomeModule;
 import com.xike.kbq.core.app.Kbq;
 import com.xike.kbq.core.net.interceptors.DebugInterceptor;
+import com.xike.kbq.ec.database.DatabaseManager;
 import com.xike.kbq.ec.icon.FontEcModule;
 
 /**
@@ -21,7 +22,10 @@ public class MainApp extends Application {
                 .withIcon(new FontEcModule())
                 .withLoaderDelayed(1000)
                 .withApiHost("http://127.0.0.1/")
-                .withInterceptor(new DebugInterceptor("index", R.raw.test))
+                .withInterceptor(new DebugInterceptor())
                 .configure();
+
+        //初始化数据库
+        DatabaseManager.getInstance().init(this);
     }
 }

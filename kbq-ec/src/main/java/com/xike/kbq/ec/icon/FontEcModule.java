@@ -4,9 +4,10 @@ import com.joanzapata.iconify.Icon;
 import com.joanzapata.iconify.IconFontDescriptor;
 
 /**
- * Created by 傅令杰 on 2017/3/29
+ * Author: 柯葆青
+ * Date: 2018/9/19
+ * Description: 字体
  */
-
 public class FontEcModule implements IconFontDescriptor {
     @Override
     public String ttfFileName() {

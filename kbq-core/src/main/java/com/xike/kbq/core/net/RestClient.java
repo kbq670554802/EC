@@ -91,11 +91,13 @@ public class RestClient {
                 break;
             case POST:
                 call = service.post(URL, PARAMS);
+                break;
             case POST_RAW:
                 call = service.postRaw(URL, BODY);
                 break;
             case PUT:
                 call = service.put(URL, PARAMS);
+                break;
             case PUT_RAW:
                 call = service.putRaw(URL, BODY);
                 break;

@@ -48,9 +48,9 @@ public class ExampleDelegate extends KbqDelegate {
     public void onGet() {
         RestClient.builder()
 //                .url("http://news.baidu.com")
-                .url("http://127.0.0.1/index")
+                .url("http://127.0.0.1/debug")
                 .loader(getContext())
-//                .params("", "")
+                .params("debug", R.raw.about)
                 .success(new ISuccess() {
                     @Override
                     public void onSuccess(String response) {
