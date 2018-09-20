@@ -3,6 +3,8 @@ package com.xike.ec;
 import android.app.Application;
 
 import com.joanzapata.iconify.fonts.FontAwesomeModule;
+import com.xike.ec.event.ShareEvent;
+import com.xike.ec.event.TestEvent;
 import com.xike.kbq.core.app.Kbq;
 import com.xike.kbq.core.net.interceptors.DebugInterceptor;
 import com.xike.kbq.ec.database.DatabaseManager;
@@ -23,6 +25,9 @@ public class MainApp extends Application {
                 .withLoaderDelayed(1000)
                 .withApiHost("http://127.0.0.1/")
                 .withInterceptor(new DebugInterceptor())
+                .withJavascriptInterface("kbq")
+                .withWebEvent("test", new TestEvent())
+                .withWebEvent("share", new ShareEvent())
                 .configure();
 
         //初始化数据库

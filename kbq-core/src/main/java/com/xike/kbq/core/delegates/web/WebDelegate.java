@@ -53,7 +53,7 @@ public abstract class WebDelegate extends KbqDelegate implements IWebViewInitial
                 mWebView.setWebViewClient(initializer.initWebViewClient());
                 mWebView.setWebChromeClient(initializer.initWebChromeClient());
                 final String name = Kbq.getConfiguration(ConfigKeys.JAVASCRIPT_INTERFACE);
-                mWebView.addJavascriptInterface(LatteWebInterface.create(this), name);
+                mWebView.addJavascriptInterface(KbqWebInterface.create(this), name);
                 mIsWebViewAvailable = true;
             } else {
                 throw new NullPointerException("Initializer is null!");

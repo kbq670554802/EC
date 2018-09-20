@@ -8,15 +8,6 @@ import android.view.View;
 
 import com.bigkoo.convenientbanner.ConvenientBanner;
 import com.bigkoo.convenientbanner.listener.OnItemClickListener;
-//import com.flj.latte.app.AccountManager;
-//import com.flj.latte.app.IUserChecker;
-//import com.flj.latte.delegates.LatteDelegate;
-//import com.diabin.latte.ec.R;
-//import com.flj.latte.ui.launcher.ILauncherListener;
-//import com.flj.latte.ui.launcher.LauncherHolderCreator;
-//import com.flj.latte.ui.launcher.OnLauncherFinishTag;
-//import com.flj.latte.ui.launcher.ScrollLauncherTag;
-//import com.flj.latte.util.storage.LattePreference;
 import com.xike.kbq.core.app.AccountManager;
 import com.xike.kbq.core.app.IUserChecker;
 import com.xike.kbq.core.delegates.KbqDelegate;

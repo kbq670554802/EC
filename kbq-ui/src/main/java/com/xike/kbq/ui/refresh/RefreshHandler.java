@@ -2,14 +2,17 @@ package com.xike.kbq.ui.refresh;
 
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.xike.kbq.core.app.Kbq;
 import com.xike.kbq.core.net.RestClient;
+import com.xike.kbq.core.net.callback.IFailure;
 import com.xike.kbq.core.net.callback.ISuccess;
 import com.xike.kbq.core.util.log.KbqLogger;
+import com.xike.kbq.ui.R;
 import com.xike.kbq.ui.recycler.DataConverter;
 import com.xike.kbq.ui.recycler.MultipleRecyclerAdapter;
 
@@ -22,6 +25,7 @@ public class RefreshHandler implements
         SwipeRefreshLayout.OnRefreshListener
         , BaseQuickAdapter.RequestLoadMoreListener {
 
+    private static final String TAG = "RefreshHandler";
     private final SwipeRefreshLayout REFRESH_LAYOUT;
     private final PagingBean BEAN;
     private final RecyclerView RECYCLERVIEW;
@@ -71,6 +75,12 @@ public class RefreshHandler implements
                         BEAN.addIndex();
                     }
                 })
+                .failure(new IFailure() {
+                    @Override
+                    public void onFailure() {
+                        Log.i(TAG, "onFailure: ");
+                    }
+                })
                 .build()
                 .get();
     }
@@ -116,6 +126,6 @@ public class RefreshHandler implements
 
     @Override
     public void onLoadMoreRequested() {
-        paging("refresh.php?index=");
+        paging("refresh.php?debug="+ R.raw.index_data +"&index=");
     }
 }

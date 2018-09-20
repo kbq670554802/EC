@@ -1,4 +1,5 @@
 apply plugin: 'com.android.application'
+//apply plugin: 'com.jakewharton.butterknife'
 
 android {
     compileSdkVersion 27
@@ -22,4 +23,6 @@ dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation project(':kbq-ec')
     annotationProcessor project(':kbq-compiler')
+    compileOnly project(':kbq-annotatios')
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.4.0'
 }

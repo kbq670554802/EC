@@ -12,15 +12,15 @@ import com.xike.kbq.core.util.log.KbqLogger;
  * Created by 傅令杰
  */
 
-final class LatteWebInterface {
+final class KbqWebInterface {
     private final WebDelegate DELEGATE;
 
-    private LatteWebInterface(WebDelegate delegate) {
+    private KbqWebInterface(WebDelegate delegate) {
         this.DELEGATE = delegate;
     }
 
-    static LatteWebInterface create(WebDelegate delegate) {
-        return new LatteWebInterface(delegate);
+    static KbqWebInterface create(WebDelegate delegate) {
+        return new KbqWebInterface(delegate);
     }
 
     @SuppressWarnings("unused")

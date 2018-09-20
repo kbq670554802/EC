@@ -9,6 +9,7 @@ import com.xike.kbq.core.activities.ProxyActivity;
 import com.xike.kbq.core.app.Kbq;
 import com.xike.kbq.core.delegates.KbqDelegate;
 import com.xike.kbq.ec.launcher.LauncherDelegate;
+import com.xike.kbq.ec.main.EcBottomDelegate;
 import com.xike.kbq.ec.sign.ISignListener;
 import com.xike.kbq.ec.sign.SignInDelegate;
 import com.xike.kbq.ec.sign.SignUpDelegate;
@@ -59,7 +60,7 @@ public class ExampleActivity extends ProxyActivity implements
         switch (tag) {
             case SIGNED:
                 Toast.makeText(this, "启动结束，用户登录了", Toast.LENGTH_LONG).show();
-//                getSupportDelegate().startWithPop(new EcBottomDelegate());
+                getSupportDelegate().startWithPop(new EcBottomDelegate());
                 break;
             case NOT_SIGNED:
                 Toast.makeText(this, "启动结束，用户没登录", Toast.LENGTH_LONG).show();
